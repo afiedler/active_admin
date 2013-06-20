@@ -181,7 +181,7 @@ module ActiveAdmin
     # Capture the ADD JS
     def js_for_has_many(association, form_block, template)
       assoc_reflection = object.class.reflect_on_association(association)
-      assoc_name       = assoc_reflection.klass.model_name
+      assoc_name       = assoc_reflection.klass.model_name.to_s
       placeholder      = "NEW_#{assoc_name.upcase.split(' ').join('_')}_RECORD"
       opts = {
         :for         => [association, assoc_reflection.klass.new],
